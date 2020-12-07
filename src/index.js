@@ -1,17 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './css/bootstrap.css';
+import './css/styles.css';
+import { LoginComponent } from "./loginComponent";
+import { WelcomeComponent } from "./welcomeComponent";
+import { Footer } from "./footer";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      isLogin: false
+    };
+    this.login = this.login.bind(this);
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  login() {
+    this.setState({isLogin: true});
+  }
+
+  render () {
+    if (this.state.isLogin){
+      return <LoginComponent />;
+    } else {
+    return <WelcomeComponent onClick={this.login}/>;
+    }
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Footer />, document.getElementById('footer'));

@@ -1,0 +1,38 @@
+/* RESET SELECTOR */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* Navbar styles */
+nav a {
+   color: #E57F4D;
+}
+
+nav a:hover {
+   color: orange;
+}
+
+#caricon {
+   height: 60px;
+}
+
+#loginBtn {
+   background-color: #E57F4D;
+   border: none;
+}
+
+#loginBtn:hover {
+   color: lightgray;
+   background-color: c1673e;
+}
+
+
+/* footer styles */
+footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   color: white;
+ }

@@ -1,0 +1,27 @@
+/* RESET SELECTOR */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+#logincontainer {
+   background-color: #E57F4d;
+   margin: 0;
+   min-width: 100%;
+   min-height: 100vh;
+}
+
+#cariconLogin {
+   height: 150px;
+}
+
+#formtitle {
+   color: #E57F4D;
+}
+
+.btn-login {
+   color: #fff;
+   background-color:  #E57F4D;
+   border-color:  #E57F4D;
+ }
