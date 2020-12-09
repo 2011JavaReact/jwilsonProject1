@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/bootstrap.css';
-import './css/styles.css';
 import { Footer } from "./components/footer";
 import App from './app';
+import './css/bootstrap.css';
+import './css/styles.css';
 
 
 

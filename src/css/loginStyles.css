@@ -22,6 +22,6 @@
 
 .btn-login {
    color: #fff;
-   background-color:  #E57F4D;
-   border-color:  #E57F4D;
+   background-color:  #E57F4D !important; 
+   border-color: #E57F4D !important;
  }

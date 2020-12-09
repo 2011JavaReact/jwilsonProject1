@@ -14,16 +14,16 @@ nav a:hover {
    color: orange;
 }
 
-#caricon {
+#navbarContainer #caricon {
    height: 60px;
 }
 
-#loginBtn {
+#navbarContainer #loginBtn {
    background-color: #E57F4D;
    border: none;
 }
 
-#loginBtn:hover {
+#navbarContainer #loginBtn:hover {
    color: lightgray;
    background-color: c1673e;
 }
@@ -31,8 +31,21 @@ nav a:hover {
 
 /* footer styles */
 footer {
-   position: absolute;
-   bottom: 0;
+   /* position: absolute;
+   bottom: 0; */
+   overflow: auto;
    width: 100%;
+   color: white;
+ }
+
+ /* showcase styles */
+
+ #showcaseContainer {
+    background: url('../images/carBackground.jpeg') no-repeat center center;
+    overflow: auto;
+ }
+
+ #showcaseText {
+   background-color: rgba(0,0,0,0.7);
    color: white;
  }
