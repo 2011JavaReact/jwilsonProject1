@@ -31,8 +31,6 @@ nav a:hover {
 
 /* footer styles */
 footer {
-   /* position: absolute;
-   bottom: 0; */
    overflow: auto;
    width: 100%;
    color: white;
@@ -48,4 +46,15 @@ footer {
  #showcaseText {
    background-color: rgba(0,0,0,0.7);
    color: white;
+ }
+
+
+ /* view styles */
+
+ #viewContainer th, #viewContainer td {
+    padding: 5px 15px;
+ }
+
+ #viewContainer table {
+    color: white;
  }

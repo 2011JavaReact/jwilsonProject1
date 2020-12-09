@@ -7,7 +7,7 @@ export default class WelcomeComponent extends React.Component {
 
    render() {
       return (
-         <div className="App">
+         <div id="welcomeContainer">
             <Navbar page='welcome'/>
             <main>
                <Showcase />
