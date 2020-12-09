@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import WelcomeComponent from './welcomeComponent'
+import WelcomeComponent from './components/welcomeComponent'
 
 function App() {
    return (
