@@ -4,7 +4,7 @@ import car from './images/car.png';
 import './css/bootstrap.css';
 
 
-export class LoginComponent extends React.Component {
+export default class LoginComponent extends React.Component {
 
    render() {
       return (

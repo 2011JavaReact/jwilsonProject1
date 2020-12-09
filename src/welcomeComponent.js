@@ -2,7 +2,7 @@ import React from 'react'
 import car from './images/car.png';
 
 
-export class WelcomeComponent extends React.Component {
+export default class WelcomeComponent extends React.Component {
 
    render() {
       return (
