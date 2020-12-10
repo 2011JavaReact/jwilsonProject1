@@ -50,11 +50,9 @@ footer {
 
 
  /* view styles */
+#viewComponentContainer {
+   background-color: #E57F4D;
+}
 
- #viewContainer th, #viewContainer td {
-    padding: 5px 15px;
- }
 
- #viewContainer table {
-    color: white;
- }
+ /* Add styles */

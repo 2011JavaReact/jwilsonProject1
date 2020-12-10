@@ -11,9 +11,8 @@ export default class LoginComponent extends React.Component {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
       fetch(`http://18.191.134.205:8080/cars/login?username=${username}&password=${password}`, {
-         method: 'POST',
-         mode: 'cors'
-      }).then(resp => Response.json())
+         method: 'POST'
+      }).then(res => res.json())
       .then(data => {
          console.log(data);
       });
@@ -21,9 +20,9 @@ export default class LoginComponent extends React.Component {
 
    render() {
       return (
-         <div className='m-0'>
+         <div className='m-0 h-100'>
             <Navbar page='login'/>
-            <div id="logincontainer" className='container h-100 w-100 p-5'>
+            <div id="logincontainer" className='container vh-100 w-100 p-5'>
                <div id="loginbox" className='row align-items-center justify-content-center h-100'>
                   <div className="border border-dark rounded-lg bg-dark p-md-4 p-sm-1 m-md-auto m-sm-0 mt-5 shadow-lg text-center w-50">
                      <img src={car} alt="Car icon" id='cariconLogin' />
