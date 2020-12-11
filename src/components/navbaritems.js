@@ -5,14 +5,14 @@ export const NavbarItems = (props) => {
       return (
          <div className="navbar-nav ml-4">
             <a href="/view" className='nav-item nav-link'>View</a>
-            <a href="/add" className='nav-item nav-link'>Add</a>
+            <a href="/add" className='nav-item nav-link current'>Add</a>
          </div>
       );
    } else if (props.page === 'view') {
       return (
          <div className='d-flex justify-content-between w-100'>
             <div className="navbar-nav mx-4 mr-auto">
-               <a href="/view" className='nav-item nav-link'>View</a>
+               <a href="/view" className='nav-item nav-link current'>View</a>
                <a href="/add" className='nav-item nav-link'>Add</a>
             </div>
             <form className="form-inline">

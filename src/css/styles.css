@@ -10,7 +10,7 @@ nav a {
    color: #E57F4D;
 }
 
-nav a:hover {
+nav a:hover, .current {
    color: orange;
 }
 

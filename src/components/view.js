@@ -1,11 +1,15 @@
 import React, {useEffect } from 'react';
+import Axios from 'axios';
 
 export const View = (props) => {
 
    const getCars = () => {
-      fetch('http://18.191.134.205:8080/cars/cars')
-         .then(res => res.json())
-         .then(data => addCars(data));
+      // fetch('http://18.191.134.205:8080/cars/cars')
+      //    .then(res => res.json())
+      //    .then(data => addCars(data));
+
+      Axios.get('http://18.191.134.205:8080/cars/cars', {}, {withCredentials: true, headers: {'Access-Control-Allow-Origin': 'http://localhost:3000'}})
+      .then(res => addCars(res.data));
    }
 
    const addCars = data => {
