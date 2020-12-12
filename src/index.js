@@ -8,5 +8,5 @@ import AuthContext from './components/context/AuthContext';
 
 
 
-ReactDOM.render(<AuthContext> <App /></AuthContext>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<Footer />, document.getElementById('footer'));
