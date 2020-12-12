@@ -1,24 +1,11 @@
 import React from 'react';
 
 export const NavbarItems = (props) => {
-   if (props.page === "add") {
+   if (props.page === "add" || props.page === 'view') {
       return (
          <div className="navbar-nav ml-4">
-            <a href="/view" className='nav-item nav-link'>View</a>
-            <a href="/add" className='nav-item nav-link current'>Add</a>
-         </div>
-      );
-   } else if (props.page === 'view') {
-      return (
-         <div className='d-flex justify-content-between w-100'>
-            <div className="navbar-nav mx-4 mr-auto">
-               <a href="/view" className='nav-item nav-link current'>View</a>
-               <a href="/add" className='nav-item nav-link'>Add</a>
-            </div>
-            <form className="form-inline">
-               <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-               <button className="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-            </form>
+            {props.page === 'view' ? <a href="/view" className='nav-item nav-link current'>View</a> : <a href="/view" className='nav-item nav-link'>View</a>}
+            {props.page === 'add' ? <a href="/add" className='nav-item nav-link current'>Add</a>: <a href="/add" className='nav-item nav-link'>Add</a>}
          </div>
       );
    } else if (props.page === 'welcome') {

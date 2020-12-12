@@ -5,6 +5,10 @@
    box-sizing: border-box;
 }
 
+.error {
+   color: red;
+}
+
 /* Navbar styles */
 nav a {
    color: #E57F4D;
@@ -54,5 +58,31 @@ footer {
    background-color: #E57F4D;
 }
 
+#viewComponentContainer #tableContainer {
+   color: white;
+}
+
+#viewComponentContainer #searchContainer {
+   overflow: auto;
+}
+
 
  /* Add styles */
+ #addContainer #addFormContainer {
+    color: white;
+ }
+
+ #addContainer #addFormBtn {
+    background-color: #E57F4D;
+    border-color: #E57F4D;
+ }
+
+ #addContainer #addFormBtn:hover {
+   color: lightgray;
+   background-color: c1673e;
+ }
+
+ #addComponentContainer {
+    background-color: #E57F4D;
+    overflow: auto;
+ }

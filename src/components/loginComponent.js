@@ -10,22 +10,23 @@ export default class LoginComponent extends React.Component {
 
    constructor(props) {
       super(props);
-      this.state = {isLoggedIn: false};
+      this.state = {isLoggedIn: false, error: ''};
    }
 
    login = (e) => {
       e.preventDefault();
-      console.log('test');
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
+      // const url = `http://18.191.134.205:8080/cars/login?username=${username}&password=${password}`;
+      const url = `http://localhost:8080/cars/login?username=${username}&password=${password}`;
 
-      Axios.post(`http://18.191.134.205:8080/cars/login?username=${username}&password=${password}`, {},{withCredentials: true})
+      Axios.post(url, {},{withCredentials: true})
       .then(res => {
-         console.log(res);
-         console.log(res.config['xsrfCookieName']);
          if (res.status === 200) {
-            this.setState({isLoggedIn: true});
+            this.setState({...this.state, isLoggedIn: true});
          }
+      }).catch(e => {
+         this.setState({...this.state, error: 'Incorrect Username or Password'});
       });
    }
 
@@ -41,6 +42,7 @@ export default class LoginComponent extends React.Component {
                   <div className="border border-dark rounded-lg bg-dark p-md-4 p-sm-1 m-md-auto m-sm-0 mt-5 shadow-lg text-center w-50">
                      <img src={car} alt="Car icon" id='cariconLogin' />
                      <h1 id='formtitle' className='text-center'>Car Tracker</h1>
+                     <h3 id='loginError' className='text-center error'>{this.state.error}</h3>
                      <hr />
                      <form id="loginform" className='px-5' onSubmit={this.login}>
                         <div className="form-group input-group p-2 mb-2">

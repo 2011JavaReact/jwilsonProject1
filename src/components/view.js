@@ -1,32 +1,20 @@
-import React, {useEffect } from 'react';
-import Axios from 'axios';
+import React, { useState } from 'react';
+import Car from './car';
 
-export const View = (props) => {
+export const View = ({ cars, search }) => {
 
-   const getCars = () => {
-      // fetch('http://18.191.134.205:8080/cars/cars')
-      //    .then(res => res.json())
-      //    .then(data => addCars(data));
-
-      Axios.get('http://18.191.134.205:8080/cars/cars', {}, {withCredentials: true, headers: {'Access-Control-Allow-Origin': 'http://localhost:3000'}})
-      .then(res => addCars(res.data));
-   }
-
-   const addCars = data => {
-      let element = document.createElement('tr');
-      data.array.forEach(d => {
-         element.innerHTML += `<td>${d.name}<td><td>$${d.price.toFixed(2)}<td>`;
-      });
-      document.getElementById('cartable').appendChild(element);
-   }
-
-   useEffect(() => {
-      getCars();
-   }, []);
+   const [name, setName] = useState('');
 
    return (
       <div id='viewContainer' className='w-100 h-100 px-5'>
          <div id='tableContainer' className='p-3 m-3'>
+            <div id='searchContainer' className='bg-dark p-1'>
+               <h2 className='text-center'>Cars View</h2>
+               <form className="form-inline float-right">
+                  <input className="form-control mr-sm-2" type="text" value={name} placeholder="Search" onChange={(e) => setName(e.target.value)}/>
+                  <button className="btn btn-outline-success my-2 my-sm-0" type="button" onClick={() => search(name)}>Search</button>
+               </form>
+            </div>
             <table id='cartable' className='m-auto table table-sm table-responsive-sm table-dark table-striped table-bordered table-hover'>
                <thead>
                   <tr>
@@ -34,19 +22,8 @@ export const View = (props) => {
                      <th>Price</th>
                   </tr>
                </thead>
-               <tbody>
-                  <tr>
-                     <td>Dummy Data</td>
-                     <td>Dummy Data</td>
-                  </tr>
-                  <tr>
-                     <td>Toyota Tacoma</td>
-                     <td>$26150.00</td>
-                  </tr>
-                  <tr>
-                     <td>Ford F-150</td>
-                     <td>$28745.00</td>
-                  </tr>
+               <tbody id='viewBody'>
+                  {cars.map((c) => <Car c={c} key={c.id} />)}
                </tbody>
             </table>
          </div>
