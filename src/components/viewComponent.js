@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Navbar } from './navbar';
 import { View } from './view';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-export const ViewComponent = ({logout, auth}) => {
+export const ViewComponent = ({logout, isAuthenticated}) => {
 
    const [cars, setCars] = useState([]);
 
@@ -56,10 +56,6 @@ export const ViewComponent = ({logout, auth}) => {
    }
 
    useEffect(() => {
-      console.log(auth);
-      if(!auth) {
-         <Redirect to='/login'/>
-      }
       getCars();
    }, []);
 

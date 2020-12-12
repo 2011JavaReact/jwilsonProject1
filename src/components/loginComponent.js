@@ -3,6 +3,7 @@ import '../css/loginStyles.css';
 import car from '../images/car.png';
 import { Navbar } from './navbar';
 import { Redirect } from 'react-router-dom';
+import Axios from 'axios';
 
 
 export default class LoginComponent extends React.Component {

@@ -2,8 +2,9 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { Add } from './add';
 import { Navbar } from './navbar';
+import { Redirect } from 'react-router-dom';
 
-export const AddComponent = ({logout}) => {
+export const AddComponent = ({logout, isAuthenticated}) => {
 
    const [success, setSuccess] = useState({state: false, message: ''});
 
