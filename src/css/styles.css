@@ -22,7 +22,7 @@ nav a:hover, .current {
    height: 60px;
 }
 
-#navbarContainer #loginBtn {
+#navbarContainer #loginBtn, #logoutBtn {
    background-color: #E57F4D;
    border: none;
 }
@@ -60,11 +60,9 @@ footer {
 
 #viewComponentContainer #tableContainer {
    color: white;
-}
-
-#viewComponentContainer #searchContainer {
    overflow: auto;
 }
+
 
 
  /* Add styles */

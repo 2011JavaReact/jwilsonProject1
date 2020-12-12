@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Add } from './add';
 import { Navbar } from './navbar';
 
-export const AddComponent = (props) => {
+export const AddComponent = ({logout}) => {
 
    const [success, setSuccess] = useState({state: false, message: ''});
 
@@ -17,6 +17,7 @@ export const AddComponent = (props) => {
          const msg = res.data.slice(res.data.indexOf('.') + 1);
          if (msg !== 'null') {
             setSuccess({state: true, message: 'Car Inserted Successfully!'});
+            e.target.reset();
          } else {
             setSuccess({state: false, message: 'Error Inserting Car'});
          }
@@ -25,7 +26,7 @@ export const AddComponent = (props) => {
 
    return (
       <div id='addComponentContainer'>
-         <Navbar page='add'/>
+         <Navbar page='add' logout={logout}/>
          <Add insertCar={insertCar} success={success}/>
       </div>
    );
