@@ -2,16 +2,15 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { Add } from './add';
 import { Navbar } from './navbar';
-import { Redirect } from 'react-router-dom';
 
-export const AddComponent = ({logout, isAuthenticated}) => {
+export const AddComponent = ({logout}) => {
 
    const [success, setSuccess] = useState({state: false, message: ''});
 
    const insertCar = (e, carName, carPrice) => {
       e.preventDefault();
-      //const url = `http://18.191.134.205:8080/cars/cars?carName=${carName}&carPrice=${carPrice}`
-      const url = `http://localhost:8080/cars/cars?carName=${carName}&carPrice=${carPrice}`;
+      const url = `http://18.191.134.205:8080/cars/cars?carName=${carName}&carPrice=${carPrice}`;
+      // const url = `http://localhost:8080/cars/cars?carName=${carName}&carPrice=${carPrice}`;
 
       Axios.post(url, {}, {withCredentials: true})
       .then(res => {
@@ -22,6 +21,8 @@ export const AddComponent = ({logout, isAuthenticated}) => {
          } else {
             setSuccess({state: false, message: 'Error Inserting Car'});
          }
+      }).catch(err => {
+         setSuccess({state: false, message: 'Error Inserting Car'});
       });
    }
 

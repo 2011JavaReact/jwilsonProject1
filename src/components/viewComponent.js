@@ -1,23 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from './navbar';
 import { View } from './view';
-import Axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
-export const ViewComponent = ({logout, isAuthenticated}) => {
+export const ViewComponent = ({ logout, isAuthenticated }) => {
 
    const [cars, setCars] = useState([]);
 
    const getCars = () => {
-      // const url = 'http://18.191.134.205:8080/cars/cars';
-      const url = 'http://localhost:8080/cars/cars';
+      const url = 'http://18.191.134.205:8080/cars/cars';
+      // const url = 'http://localhost:8080/cars/cars';
 
-      Axios.get(url, {}, { withCredentials: true, headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000' } })
-         .then(res => {
-            const index = res.data.indexOf(']');
-            const data = res.data.substring(index + 1, 0);
-            setCars(JSON.parse(data));
-         });
+      fetch(url, {
+         credentials: 'include'
+      })
+      .then(res => res.json())
+      .then(data => setCars(data.cars));
    }
 
    const search = (e, val) => {
@@ -25,29 +22,27 @@ export const ViewComponent = ({logout, isAuthenticated}) => {
       let url;
       if (val === '') {
          getCars();
-      } else if (parseInt(val)){
-         // const url = `http://18.191.134.205:8080/cars/cars?carId=${name}`;
-         url = `http://localhost:8080/cars/cars?carId=${val}`;
-         console.log(url);
-         Axios.get(url, {}, { withCredentials: true, headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000' } })
-            .then(res => {
-               setCars(res.data);
-            });
+         return;
+      } else if (parseInt(val)) {
+         url = `http://18.191.134.205:8080/cars/cars?carId=${val}`;
       } else {
-         url = `http://localhost:8080/cars/cars?carName=${val}`;
-         console.log(url);
-         Axios.get(url, {}, { withCredentials: true, headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000' } })
-            .then(res => {
-               setCars(res.data);
-            });
+         url = `http://18.191.134.205:8080/cars/cars?carName=${val}`;
       }
+      fetch(url, {
+         credentials: 'include'
+      })
+      .then(res => res.json())
+      .then(data => setCars(data));
    }
 
    const deleteCar = (id) => {
-      // const url = `http://18.191.134.205:8080/cars/cars?carId=${id}`
-      const url = `http://localhost:8080/cars/cars?carId=${id}`;
+      const url = `http://18.191.134.205:8080/cars/cars?carId=${id}`;
+      // const url = `http://localhost:8080/cars/cars?carId=${id}`;
 
-      Axios.delete(url, {}, {withCredentials: true})
+      fetch(url, {
+         method: 'delete',
+         credentials: 'include'
+      })
       .then(res => {
          if (res.status === 200) {
             getCars();
@@ -61,9 +56,9 @@ export const ViewComponent = ({logout, isAuthenticated}) => {
 
    return (
       <div id='viewComponentContainer' className='vh-100 overflow-auto'>
-         <Navbar page='view' logout={logout}/>
+         <Navbar page='view' logout={logout} />
          <main>
-            <View cars={cars} search={search} deleteCar={deleteCar}/>
+            <View cars={cars} search={search} deleteCar={deleteCar} />
          </main>
       </div>
    );

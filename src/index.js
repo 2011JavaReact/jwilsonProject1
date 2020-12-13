@@ -4,8 +4,9 @@ import App from './app';
 import './css/bootstrap.css';
 import './css/styles.css';
 import {Footer} from './components/footer'
-import AuthContext from './components/context/AuthContext';
+import Axios from 'axios';
 
+export const http = Axios.create({withCredentials: true});
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

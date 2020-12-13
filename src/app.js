@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoginComponent from './components/loginComponent';
 import WelcomeComponent from './components/welcomeComponent';
 import { ViewComponent } from './components/viewComponent'
 import { AddComponent } from './components/addComponent';
-import { Consumer } from './components/context/AuthContext';
-
 
 const App = () => {
    const [isAuthenticated, setAuthenticated] = useState({});
@@ -14,8 +12,8 @@ const App = () => {
 
    const login = async (e, username, password) => {
       e.preventDefault();
-      // const url = `http://18.191.134.205:8080/cars/login?username=${username}&password=${password}`;
-      const url = `http://localhost:8080/cars/login?username=${username}&password=${password}`;
+      const url = `http://18.191.134.205:8080/cars/login?username=${username}&password=${password}`;
+      // const url = `http://localhost:8080/cars/login?username=${username}&password=${password}`;
 
       await Axios.post(url, {}, { withCredentials: true })
          .then(res => {
@@ -28,9 +26,18 @@ const App = () => {
          });
    }
 
-   const logout = () => {
-      console.log('logged out');
-      setAuthenticated(false);
+   const logout = (history) => {
+      const url = `http://18.191.134.205:8080/cars/logout`;
+
+      fetch(url, {
+         credentials: 'include'
+      })
+      .then(res => {
+         if (res.status === 200) {
+            setAuthenticated(false);
+         }
+      });
+      history.push('/');
    }
 
    return (
