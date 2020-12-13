@@ -14,7 +14,13 @@ export const ViewComponent = ({ logout, isAuthenticated }) => {
          credentials: 'include'
       })
       .then(res => res.json())
-      .then(data => setCars(data.cars));
+      .then(data => {
+         if (data.cars) {
+            setCars(data.cars);
+         } else {
+            setCars(data);
+         }
+      });
    }
 
    const search = (e, val) => {
