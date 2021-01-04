@@ -7,7 +7,7 @@ This application serves as a basic front end for the Car Tracker API. This API a
 - React
 - Bootstrap
 - Axios
-- Create-React_app
+- Create-React-app
 - Node.js
 - npm
 
