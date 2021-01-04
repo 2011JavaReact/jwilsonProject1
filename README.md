@@ -2,8 +2,6 @@
 ## Project Description
 This application serves as a basic front end for the Car Tracker API. This API allows for the management of car inventory and cusomers. Presently this application focuses on managing car inventory with customer functionality in the works. 
 
-This application was created using React and create react app. Documentation for create react app is included below. 
-
 ## Technologies Used
 - JavaScript
 - React
